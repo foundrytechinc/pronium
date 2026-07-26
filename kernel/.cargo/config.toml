@@ -1,0 +1,8 @@
+# Copyright (C) 2026 Pronin. All rights reserved.
+
+[build]
+target = "x86_64-unknown-none"
+rustflags = ["-C", "relocation-model=static"]
+
+[target.'cfg(target_os = "none")']
+runner = "powershell -File ../run.ps1"

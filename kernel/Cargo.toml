@@ -1,0 +1,23 @@
+# Copyright (C) 2026 Pronin. All rights reserved.
+
+[package]
+name = "pronium_os"
+version = "0.1.0"
+edition = "2021"
+authors = ["Pronin"]
+description = "Pronium OS Proprietary Core"
+
+[dependencies]
+limine = "0.6.5"
+x86_64 = "0.15"
+pic8259 = "0.10"
+spin = "0.9"
+linked_list_allocator = "0.10.5"
+font8x8 = { version = "0.3.1", default-features = false, features = ["unicode"] }
+
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"

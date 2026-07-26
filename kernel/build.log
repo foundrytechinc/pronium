@@ -1,0 +1,440 @@
+warning: profiles for the non root package will be ignored, specify profiles at the workspace root:
+package:   /home/pronin/Documents/pronenx/Pronium/kernel/Cargo.toml
+workspace: /home/pronin/Documents/pronenx/Pronium/Cargo.toml
+   Compiling pronium_os v0.1.0 (/home/pronin/Documents/pronenx/Pronium/kernel)
+warning: unused import: `spin::Mutex`
+ --> kernel/src/drivers/bochs_vga.rs:3:5
+  |
+3 | use spin::Mutex;
+  |     ^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `alloc::boxed::Box`
+ --> kernel/src/drivers/ahci_pdf.rs:8:5
+  |
+8 | use alloc::boxed::Box;
+  |     ^^^^^^^^^^^^^^^^^
+
+warning: unused import: `alloc::boxed::Box`
+ --> kernel/src/drivers/ps2_mouse.rs:3:5
+  |
+3 | use alloc::boxed::Box;
+  |     ^^^^^^^^^^^^^^^^^
+
+warning: unused import: `PosObjectRef`
+ --> kernel/src/fat_pos.rs:4:39
+  |
+4 | use crate::pos::{PosObject, PosError, PosObjectRef};
+  |                                       ^^^^^^^^^^^^
+
+warning: unused import: `Mutex`
+ --> kernel/src/fat_pos.rs:6:18
+  |
+6 | use spin::{Lazy, Mutex};
+  |                  ^^^^^
+
+warning: unused import: `alloc::string::String`
+ --> kernel/src/pdf.rs:2:5
+  |
+2 | use alloc::string::String;
+  |     ^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `PhysAddr`
+   --> kernel/src/syscall.rs:983:32
+    |
+983 |         use x86_64::{VirtAddr, PhysAddr};
+    |                                ^^^^^^^^
+
+warning: unused import: `Size4KiB`
+    --> kernel/src/syscall.rs:1052:57
+     |
+1052 |             use x86_64::structures::paging::{PhysFrame, Size4KiB};
+     |                                                         ^^^^^^^^
+
+warning: unused import: `PhysAddr`
+    --> kernel/src/syscall.rs:1053:26
+     |
+1053 |             use x86_64::{PhysAddr, VirtAddr};
+     |                          ^^^^^^^^
+
+warning: unused import: `crate::vga::VgaWriter`
+ --> kernel/src/kernel_api.rs:2:5
+  |
+2 | use crate::vga::VgaWriter;
+  |     ^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `FatFindReply`
+  --> kernel/src/pd_loader.rs:16:53
+   |
+16 | use crate::fat_pos::{FAT_SERVER_PORT, FatIoRequest, FatFindReply, FatLis...
+   |                                                     ^^^^^^^^^^^^
+
+warning: unused import: `VgaWriter`
+   --> kernel/src/pd_loader.rs:120:22
+    |
+120 |     use crate::vga::{VgaWriter, Color};
+    |                      ^^^^^^^^^
+
+warning: unused import: `VgaWriter`
+   --> kernel/src/pd_loader.rs:167:22
+    |
+167 |     use crate::vga::{VgaWriter, Color};
+    |                      ^^^^^^^^^
+
+warning: unused import: `RamFs`
+ --> kernel/src/shell.rs:5:20
+  |
+5 | use crate::ramfs::{RamFs, MAX_FILE_SIZE};
+  |                    ^^^^^
+
+warning: unused import: `FrameAllocator`
+   --> kernel/src/commands.rs:720:76
+    |
+720 | ...PageTableFlags, PhysFrame, FrameAllocator, Size4KiB};
+    |                               ^^^^^^^^^^^^^^
+
+warning: unused import: `PhysAddr`
+   --> kernel/src/commands.rs:723:28
+    |
+723 |     use x86_64::{VirtAddr, PhysAddr};
+    |                            ^^^^^^^^
+
+warning: unused import: `Size4KiB`
+   --> kernel/src/commands.rs:814:53
+    |
+814 |         use x86_64::structures::paging::{PhysFrame, Size4KiB};
+    |                                                     ^^^^^^^^
+
+warning: unused import: `PhysAddr`
+   --> kernel/src/commands.rs:815:22
+    |
+815 |         use x86_64::{PhysAddr, VirtAddr};
+    |                      ^^^^^^^^
+
+warning: unused import: `ShellState`
+ --> kernel/src/psd_tools.rs:3:27
+  |
+3 | use crate::shell::{Shell, ShellState};
+  |                           ^^^^^^^^^^
+
+warning: unused import: `alloc::vec::Vec`
+ --> kernel/src/psd_tools.rs:5:5
+  |
+5 | use alloc::vec::Vec;
+  |     ^^^^^^^^^^^^^^^
+
+warning: the feature `naked_functions` has been stable since 1.88.0 and no longer requires an attribute to enable
+ --> kernel/src/main.rs:6:12
+  |
+6 | #![feature(naked_functions)]
+  |            ^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(stable_features)]` on by default
+
+error[E0599]: no method named `remove_node` found for struct `MutexGuard<'_, RamFs>` in the current scope
+   --> kernel/src/psd_tools.rs:307:30
+    |
+307 |         crate::RAM_FS.lock().remove_node(name).is_ok()
+    |                              ^^^^^^^^^^^ method not found in `MutexGuard<'_, RamFs>`
+
+error[E0107]: struct takes 0 generic arguments but 1 generic argument was supplied
+   --> kernel/src/psd_tools.rs:314:32
+    |
+314 |     let mut cmd = crate::port::Port::<u8>::new(0x70);
+    |                                ^^^^------ help: remove the unnecessary generics
+    |                                |
+    |                                expected 0 generic arguments
+    |
+note: struct defined here, with 0 generic parameters
+   --> kernel/src/port.rs:17:12
+    |
+ 17 | pub struct Port {
+    |            ^^^^
+
+error[E0107]: struct takes 0 generic arguments but 1 generic argument was supplied
+   --> kernel/src/psd_tools.rs:315:33
+    |
+315 |     let mut data = crate::port::Port::<u8>::new(0x71);
+    |                                 ^^^^------ help: remove the unnecessary generics
+    |                                 |
+    |                                 expected 0 generic arguments
+    |
+note: struct defined here, with 0 generic parameters
+   --> kernel/src/port.rs:17:12
+    |
+ 17 | pub struct Port {
+    |            ^^^^
+
+error[E0599]: no method named `write` found for struct `Arc<Port>` in the current scope
+   --> kernel/src/psd_tools.rs:316:9
+    |
+316 |     cmd.write(reg);
+    |         ^^^^^
+    |
+    = help: items from traits can only be used if the trait is implemented and in scope
+    = note: the following traits define an item `write`, perhaps you need to implement one of them:
+            candidate #1: `PosObject`
+            candidate #2: `DebugAddressRegister`
+            candidate #3: `Hasher`
+            candidate #4: `core::io::Write`
+            candidate #5: `x86_64::registers::debug::DebugAddressRegister`
+help: there is a method `write_port` with a similar name, but with different arguments
+   --> kernel/src/port.rs:30:5
+    |
+ 30 |     pub fn write_port(&self, code: u32, data: &[u8]) -> Result<(), &'static str> {
+    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+error[E0599]: no method named `read` found for struct `Arc<Port>` in the current scope
+   --> kernel/src/psd_tools.rs:317:10
+    |
+317 |     data.read()
+    |          ^^^^ method not found in `Arc<Port>`
+    |
+    = help: items from traits can only be used if the trait is implemented and in scope
+    = note: the following traits define an item `read`, perhaps you need to implement one of them:
+            candidate #1: `PosObject`
+            candidate #2: `DebugAddressRegister`
+            candidate #3: `x86_64::registers::debug::DebugAddressRegister`
+
+warning: unused import: `FrameAllocator`
+   --> kernel/src/syscall.rs:980:80
+    |
+980 | ...PageTableFlags, PhysFrame, FrameAllocator, Size4KiB};
+    |                               ^^^^^^^^^^^^^^
+
+warning: unused variable: `buf`
+   --> kernel/src/ramfs.rs:131:38
+    |
+131 | ...&mut self, _offset: u64, buf: &mut [u8]) -> Result<usize, crate::pos...
+    |                             ^^^ help: if this is intentional, prefix it with an underscore: `_buf`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `buf`
+   --> kernel/src/ramfs.rs:136:39
+    |
+136 | ...&mut self, _offset: u64, buf: &[u8]) -> Result<usize, crate::pos::Po...
+    |                             ^^^ help: if this is intentional, prefix it with an underscore: `_buf`
+
+warning: value assigned to `temp` is never read
+   --> kernel/src/drivers/e1000.rs:123:24
+    |
+123 |         let mut temp = 0;
+    |                        ^ this value is reassigned later and never used
+...
+135 |                 temp = self.read_reg(REG_EERD);
+    |                 ------------------------------ `temp` is overwritten here before the previous value is read
+    |
+    = note: `#[warn(unused_assignments)]` (part of `#[warn(unused)]`) on by default
+
+warning: unnecessary `unsafe` block
+  --> kernel/src/drivers/ahci_pdf.rs:35:21
+   |
+35 |                     unsafe { *FAT_FS.lock() = Some(fs); }
+   |                     ^^^^^^ unnecessary `unsafe` block
+   |
+   = note: `#[warn(unused_unsafe)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> kernel/src/drivers/ps2_mouse.rs:27:17
+   |
+27 |             let mut wait_write = |cmd: &mut Port<u8>| {
+   |                 ----^^^^^^^^^^
+   |                 |
+   |                 help: remove this `mut`
+   |
+   = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: variable does not need to be mutable
+  --> kernel/src/drivers/ps2_mouse.rs:32:17
+   |
+32 |             let mut wait_read = |cmd: &mut Port<u8>| {
+   |                 ----^^^^^^^^^
+   |                 |
+   |                 help: remove this `mut`
+
+warning: unnecessary `unsafe` block
+  --> kernel/src/fat_pos.rs:61:40
+   |
+61 |                     let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+   |                                        ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> kernel/src/fat_pos.rs:73:44
+   |
+73 |                         let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+   |                                            ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> kernel/src/fat_pos.rs:89:44
+   |
+89 |                         let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+   |                                            ^^^^^^ unnecessary `unsafe` block
+
+warning: unused variable: `start`
+   --> kernel/src/syscall.rs:358:17
+    |
+358 |             let start = pos;
+    |                 ^^^^^ help: if this is intentional, prefix it with an underscore: `_start`
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/syscall.rs:571:24
+    |
+571 |     let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                        ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/syscall.rs:595:24
+    |
+595 |     let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                        ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/syscall.rs:624:24
+    |
+624 |     let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                        ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/syscall.rs:735:28
+    |
+735 |         let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                            ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/syscall.rs:759:32
+    |
+759 |             let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                                ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/syscall.rs:805:28
+    |
+805 |         let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                            ^^^^^^ unnecessary `unsafe` block
+
+warning: unused variable: `sym_size`
+   --> kernel/src/elf_loader.rs:184:32
+    |
+184 | ...let (_, _, _, sym_off, sym_size, _, _) = shdr(symtab_idx).ok_or(ElfE...
+    |                           ^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_sym_size`
+
+warning: unused variable: `e_shstrndx`
+   --> kernel/src/elf_loader.rs:111:9
+    |
+111 |     let e_shstrndx = ru16(data, 62) as usize;
+    |         ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_e_shstrndx`
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/shell.rs:218:40
+    |
+218 |                     let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                                        ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/commands.rs:259:36
+    |
+259 |                 let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                                    ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/commands.rs:289:40
+    |
+289 |                     let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                                        ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/commands.rs:312:40
+    |
+312 |                     let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                                        ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/commands.rs:330:36
+    |
+330 |                 let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                                    ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/commands.rs:364:44
+    |
+364 | ...   let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                          ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/commands.rs:387:52
+    |
+387 | ...                   let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                                          ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/commands.rs:443:40
+    |
+443 |                     let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                                        ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/commands.rs:486:36
+    |
+486 |                 let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                                    ^^^^^^ unnecessary `unsafe` block
+
+warning: unused variable: `mon_w`
+   --> kernel/src/commands.rs:176:18
+    |
+176 |             let (mon_w, mon_h) = unsafe { crate::MONITOR_INFO };
+    |                  ^^^^^ help: if this is intentional, prefix it with an underscore: `_mon_w`
+
+warning: unused variable: `mon_h`
+   --> kernel/src/commands.rs:176:25
+    |
+176 |             let (mon_w, mon_h) = unsafe { crate::MONITOR_INFO };
+    |                         ^^^^^ help: if this is intentional, prefix it with an underscore: `_mon_h`
+
+warning: unnecessary `unsafe` block
+  --> kernel/src/psd_tools.rs:76:28
+   |
+76 |             let fat_lock = unsafe { crate::FAT_FS.lock() };
+   |                            ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+  --> kernel/src/psd_tools.rs:93:36
+   |
+93 |                 let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+   |                                    ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/psd_tools.rs:260:28
+    |
+260 |         let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                            ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/psd_tools.rs:294:28
+    |
+294 |         let mut fat_lock = unsafe { crate::FAT_FS.lock() };
+    |                            ^^^^^^ unnecessary `unsafe` block
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/main.rs:305:9
+    |
+305 |         unsafe { sched.spawn(crate::fat_pos::fat32_server_thread); }
+    |         ^^^^^^ unnecessary `unsafe` block
+
+warning: unused variable: `buf`
+   --> kernel/src/main.rs:155:42
+    |
+155 | ...&mut self, _offset: u64, buf: &mut [u8]) -> Result<usize, PosError> {
+    |                             ^^^ help: if this is intentional, prefix it with an underscore: `_buf`
+
+warning: unnecessary `unsafe` block
+   --> kernel/src/main.rs:278:29
+    |
+278 | ...                   unsafe { *FAT_FS.lock() = Some(fs); }
+    |                       ^^^^^^ unnecessary `unsafe` block
+
+Some errors have detailed explanations: E0107, E0599.
+For more information about an error, try `rustc --explain E0107`.
+warning: `pronium_os` (bin "pronium_os") generated 58 warnings
+error: could not compile `pronium_os` (bin "pronium_os") due to 5 previous errors; 58 warnings emitted
