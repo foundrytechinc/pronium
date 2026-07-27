@@ -8,9 +8,8 @@ Currently, the project codebase consists of **~10000 lines of Rust code** and is
 
 ## 1. Distribution and Licensing
 
-The Pronium OS system is distributed as a pre-built bootable blob (`.iso` image) intended for full usage and daily operation.
-The source code of the kernel is provided strictly for reference and educational purposes. It is subject to a strict proprietary non-commercial license located at `kernel/src/LICENSE`.
-Please note that compiling, modifying, reverse-engineering, or distributing the kernel or its derivative works is strictly prohibited without explicit written permission from the Copyright Holder.
+The Pronium OS system is distributed as a pre-built bootable image (`.iso` image) intended for full usage and daily operation.
+The OS source code itself is distributed by BSD 3 CLAUSE
 
 ---
 
