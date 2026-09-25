@@ -5,7 +5,13 @@
 ---
 
 ## 🇬🇧 English
-
+---
+## FOR SALE
+Following the liquidation of Pronin Software Distribution, the entire repository belongs to Foundry Technologies Inc.
+Contact proninraw@foundry-tech.online to purchase this repository, brand, and domain.
+Starting price is 450 RUB (~$5, payable in crypto or via card transfer in rubles).
+Thank you.
+---
 PRONIUM is an operating system built in Rust. This guide describes how to build and run the PRONIUM OS.
 
 ### Prerequisites
@@ -54,7 +60,13 @@ To build just the ISO, you can run:
 ---
 
 ## 🇷🇺 Русский
-
+---
+## ПРОДАЁТСЯ
+После ликвидации Pronin Software Distribution, весь репозиторий принадлежит Foundry Technologies Inc. 
+Обращайтесь к proninraw@foundry-tech.online для покупки данного репозитория, бренда и домена.
+Цена стартует от 450 рублей (~5$, в крипте или рублями на карту).
+Спасибо
+---
 PRONIUM — это операционная система, написанная на Rust. В этом руководстве описан процесс сборки и запуска ОС PRONIUM.
 
 ### Требования
